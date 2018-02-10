@@ -6,5 +6,5 @@ import { Todo } from './components/Todo';
 
 export const routes = <Layout>
     <Route exact path='/' component={ Home } />
-    <Route path='/counter' component={ Todo } />
+    <Route path='/todo' component={ Todo } />
 </Layout>;
