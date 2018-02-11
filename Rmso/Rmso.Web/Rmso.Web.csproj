@@ -22,14 +22,16 @@
 
   <ItemGroup>
     <None Remove="ClientApp\pages\TodoList.tsx" />
+    <None Remove="ClientApp\shared\CheckList.tsx" />
+    <None Remove="ClientApp\shared\Input.tsx" />
+    <None Remove="ClientApp\stores\TodoStore.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\pages\TodoList.tsx" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ClientApp\shared\" />
+    <TypeScriptCompile Include="ClientApp\shared\CheckList.tsx" />
+    <TypeScriptCompile Include="ClientApp\shared\Input.tsx" />
+    <TypeScriptCompile Include="ClientApp\stores\TodoStore.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

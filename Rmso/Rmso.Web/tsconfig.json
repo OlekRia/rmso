@@ -8,6 +8,8 @@
     "sourceMap": true,
     "skipDefaultLibCheck": true,
     "strict": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "types": ["webpack-env"]
   },
   "exclude": [

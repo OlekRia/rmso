@@ -1,57 +1,54 @@
 ﻿import * as React from 'react';
+import { observer } from 'mobx-react';
+import { TodoStore, TodoEntity } from '../stores/TodoStore';
+import { Input } from '../shared/Input';
+import { CheckList } from '../shared/CheckList';
 
+interface IProps {
+    store: TodoStore;
+}
 
-export class TodoList extends React.Component<{}, {}> {
+@observer
+export class TodoList extends React.Component<IProps, {}> {
+    constructor(prop: IProps) {
+        super(prop);
+    }
+
+    // <CheckList store={this.props.store} />
 
     render() {
         return (<div>
-            {this.renderInfo()}
-            {this.renderAddInput()}
-            {this.renderFilterInput()}
-            {this.renderTodoList()}
+            <div>{this.props.store.filter}</div>
+            <Input hint="add new value and press ENTER" onEnter={true} store={this.props.store} />
+            <Input hint="filter values locally" onChange={true} store={this.props.store} />
             {this.renderClearSelected()}
+            {this.renderTodoList()}
         </div>);
     }
 
-    renderInfo() {
-        return <div>
-           to
-        </div>
-    }
-
-    renderAddInput() {
-        return <div className="input-goup mb-3">
-            <div className="input-group-append">
-                <input type="text" className="form-control" placeholder="new value"
-                    aria-label="" aria-describedby="basic-addon1"
-                //onChange={this.newValueChange.bind(this)}
-                //value={this.state.newValue}
-                //onKeyPress={this.onKeyEnter.bind(this)}
-                />
-            </div>
-        </div>
-    }
-
-    renderFilterInput() {
-        return <div className="input-goup mb-3">
-            <div className="input-group-prepend">
-                <input type="text" className="form-control" placeholder="Filter"
-                    aria-label="" aria-describedby="basic-addon1"
-                    //onChange={this.filter.bind(this)}
-                />
-            </div>
-        </div>
-    }
-
     renderTodoList() {
-        <ul className="list">
+        const todoLis = this.props.store.filteredTodos.map(todo => {
+            return <li key={todo.id} className="list-item">
+                <div className="checkbox">
+                    <label className="checkbox-inline">
+                        <input type="checkbox" value={todo.value} checked={todo.complete}
+                            onChange={() => this.props.store.toggle(todo)}
+                        >
+                        </input>
+                        {todo.value}
+                    </label>
+                </div>
+            </li>;
+        });
 
+        return <ul className="list">
+            {todoLis}
         </ul>
     }
 
     renderClearSelected() {
-        return <a href="#"
-            //onClick={store.clearComplete}
-        >Clear complete</a>
+        return <button href="todo" onClick={(e) => this.props.store.clearSelected() }>
+            Clear complete
+        </button>
     }
 }
