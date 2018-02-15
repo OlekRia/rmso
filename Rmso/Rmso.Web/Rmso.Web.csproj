@@ -21,16 +21,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\pages\TodoList.tsx" />
-    <None Remove="ClientApp\shared\CheckList.tsx" />
-    <None Remove="ClientApp\shared\Input.tsx" />
+    <None Remove="ClientApp\containers\TodoList.tsx" />
+    <None Remove="ClientApp\components\CheckList.tsx" />
+    <None Remove="ClientApp\components\Input.tsx" />
     <None Remove="ClientApp\stores\TodoStore.ts" />
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\pages\TodoList.tsx" />
-    <TypeScriptCompile Include="ClientApp\shared\CheckList.tsx" />
-    <TypeScriptCompile Include="ClientApp\shared\Input.tsx" />
+    <TypeScriptCompile Include="ClientApp\containers\TodoList.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\CheckList.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Input.tsx" />
     <TypeScriptCompile Include="ClientApp\stores\TodoStore.ts" />
   </ItemGroup>
 

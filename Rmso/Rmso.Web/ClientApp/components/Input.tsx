@@ -1,4 +1,5 @@
 ﻿import * as React from 'react';
+import { observer } from 'mobx-react';
 import { TodoStore } from '../stores/TodoStore';
 
 interface IState {
@@ -12,6 +13,7 @@ interface IProps {
     onChange?: boolean;
 }
 
+@observer
 export class Input extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);

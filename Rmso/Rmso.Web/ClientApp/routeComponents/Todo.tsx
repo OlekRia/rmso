@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { TodoList } from '../pages/TodoList';
+import { TodoList } from '../containers/TodoList';
 import store from '../stores/TodoStore';
 
 export class Todo extends React.Component<RouteComponentProps<{}>, {}> {

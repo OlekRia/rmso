@@ -1,8 +1,8 @@
 ﻿import * as React from 'react';
 import { observer } from 'mobx-react';
 import { TodoStore, TodoEntity } from '../stores/TodoStore';
-import { Input } from '../shared/Input';
-import { CheckList } from '../shared/CheckList';
+import { Input } from '../components/Input';
+import { CheckList } from '../components/CheckList';
 
 interface IProps {
     store: TodoStore;
@@ -13,8 +13,6 @@ export class TodoList extends React.Component<IProps, {}> {
     constructor(prop: IProps) {
         super(prop);
     }
-
-    // <CheckList store={this.props.store} />
 
     render() {
         return (<div>
