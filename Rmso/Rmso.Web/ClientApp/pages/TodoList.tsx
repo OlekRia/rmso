@@ -22,28 +22,8 @@ export class TodoList extends React.Component<IProps, {}> {
             <Input hint="add new value and press ENTER" onEnter={true} store={this.props.store} />
             <Input hint="filter values locally" onChange={true} store={this.props.store} />
             {this.renderClearSelected()}
-            {this.renderTodoList()}
+            <CheckList store={this.props.store} />
         </div>);
-    }
-
-    renderTodoList() {
-        const todoLis = this.props.store.filteredTodos.map(todo => {
-            return <li key={todo.id} className="list-item">
-                <div className="checkbox">
-                    <label className="checkbox-inline">
-                        <input type="checkbox" value={todo.value} checked={todo.complete}
-                            onChange={() => this.props.store.toggle(todo)}
-                        >
-                        </input>
-                        {todo.value}
-                    </label>
-                </div>
-            </li>;
-        });
-
-        return <ul className="list">
-            {todoLis}
-        </ul>
     }
 
     renderClearSelected() {

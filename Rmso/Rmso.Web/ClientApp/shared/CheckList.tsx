@@ -1,10 +1,12 @@
 ﻿import * as React from 'react';
+import { observer } from 'mobx-react';
 import { TodoStore, TodoEntity } from '../stores/TodoStore';
 
 interface IProps {
     store: TodoStore;
 }
 
+@observer
 export class CheckList extends React.Component<IProps, {}> {
     constructor(props: IProps) {
         super(props);
